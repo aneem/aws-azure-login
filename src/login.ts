@@ -14,7 +14,7 @@ import proxy from "proxy-agent";
 import https from "https";
 import { paths } from "./paths";
 import mkdirp from "mkdirp";
-import { authenticator } from 'otplib';
+import { authenticator } from "otplib";
 
 const debug = _debug("aws-azure-login");
 
@@ -285,7 +285,7 @@ const states = [
       noPrompt: boolean,
       _defaultUsername: string,
       _defaultPassword: string | undefined,
-      _defaultMFASecret: string | undefined,
+      _defaultMFASecret: string | undefined
     ): Promise<void> {
       const error = await page.$(".alert-error");
       if (error) {
@@ -320,9 +320,8 @@ const states = [
             message: "Verification Code:",
           } as Question,
         ]);
-        verificationCode = data.verificationCode
+        verificationCode = data.verificationCode as string;
       }
-
 
       debug("Focusing on verification code input");
       await page.focus(`input[name="otc"]`);
@@ -621,7 +620,7 @@ export const login = {
    * @param {bool} [enableChromeNetworkService] - Enable chrome network service.
    * @param {string} [defaultUsername] - The default username
    * @param {string} [defaultPassword] - The default password
-   * @param {string} [defaultMFASecret] - The default MFA token 
+   * @param {string} [defaultMFASecret] - The default MFA token
    * @param {bool} [enableChromeSeamlessSso] - chrome seamless SSO
    * @param {bool} [rememberMe] - Enable remembering the session
    * @param {bool} [noDisableExtensions] - True to prevent Puppeteer from disabling Chromium extensions
@@ -775,7 +774,7 @@ export const login = {
                   defaultUsername,
                   defaultPassword,
                   defaultMFASecret,
-                  rememberMe,
+                  rememberMe
                 ),
               ]);
 
