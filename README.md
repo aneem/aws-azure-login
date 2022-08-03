@@ -119,6 +119,7 @@ You can optionally store your responses as environment variables:
 - `AZURE_APP_ID_URI`
 - `AZURE_DEFAULT_USERNAME`
 - `AZURE_DEFAULT_PASSWORD`
+- `AZURE_DEFAULT_MFA_SECRET`
 - `AZURE_DEFAULT_ROLE_ARN`
 - `AZURE_DEFAULT_DURATION_HOURS`
 
